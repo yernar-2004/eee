@@ -1,0 +1,21 @@
+name: Build Info Update
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Репозиторийді көшіру
+        uses: actions/checkout@v3
+
+      - name: Python орнату
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Скриптті орындау
+        run: python PJ11_gitinfo_17.py
